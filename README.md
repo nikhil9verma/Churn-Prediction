@@ -1,5 +1,5 @@
-# Bank Churn Predictor
-
+<img width="1891" height="997" alt="image" src="https://github.com/user-attachments/assets/68ed5948-aab4-4b9d-81ec-9cd30e61f17b" /># Bank Churn Predictor
+# Live URL : churn-prediction-inky.vercel.app
 A full-stack application leveraging Machine Learning to predict customer churn probability, built with a FastAPI backend and a React (Vite) frontend.
 
 ## Architecture
