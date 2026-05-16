@@ -4,6 +4,9 @@ import CustomerForm from './components/CustomerForm';
 import PredictionResults from './components/PredictionResults';
 import './index.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+
 const App = () => {
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +17,7 @@ const App = () => {
     setError(null);
     try {
       // Assuming FastAPI backend is running on port 8000
-      const response = await axios.post('http://localhost:8000/predict', customerData);
+      const response = await axios.post(`${API_URL}/predict`, customerData);
       setResult(response.data);
     } catch (err) {
       console.error(err);

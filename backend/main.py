@@ -8,17 +8,10 @@ app = FastAPI(title="Bank Churn Predictor")
 app.add_middleware(CORSMiddleware,
     allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
-
-try:
-    model = joblib.load('churn_model.pkl')
-    scaler = joblib.load('scaler.pkl')
-    feature_names = joblib.load('feature_names.pkl')
-    explainer = shap.TreeExplainer(model)
-    print("✓ Model loaded successfully")
-except Exception as e:
-    print(f"✗ Model loading failed: {e}")
-    raise
-# note: RF doesn't require scaling — scaler saved for future LR fallback
+model = joblib.load('churn_model.pkl')
+scaler = joblib.load('scaler.pkl')
+feature_names = joblib.load('feature_names.pkl')
+explainer = shap.TreeExplainer(model)
 
 class Customer(BaseModel):
     CreditScore: float
